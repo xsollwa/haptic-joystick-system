@@ -47,5 +47,31 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 ![Screenshot 2025-06-10 212432](https://github.com/user-attachments/assets/d88df2e6-3c5f-4a72-8750-7fc613d34f4f)
 
-- I also updated the README.md file with more information on this project. 
+- I sent the 3d design over to Philip for review, revisions and fixing if needed.
+
+### June 11, 2025 - 4 hours
+
+*Ruzanna*
+
+- Today I created the first schematic for the controller pcb. It was my second time using KiCad after solder so it took A WHILE... but I finally got all the connections in place. I used an ESP32 module as the main microcontroller and wired up a joystick, pressure sensor, potentiometer, and MOSFET-controlled air pump. Getting the voltage regulator set up correctly for the ESP32 was a bit confusing, and figuring out how to wire the MOSFET without frying anything took a few tries. I also added a flyback diode for the air pump to prevent voltage spikes. Laying out all the component symbols and making sure each one had the right number of pins connected was tricky, especially with the ESP32. But by the end, I had a complete schematic I felt pretty good about. Here is a picture of it:
+
+![Screenshot 2025-06-12 125250](https://github.com/user-attachments/assets/6372711e-21f1-404e-a737-27b28564a4bc)
+
+- I sent the schematic to Philip for a double check and some feedback, and it turned out that I was using the wrong ESP32 model and batteries the whole time (I had selected the ESP32-WROOM-32 instead of the correct ESP-WROOM-32, and I was designing around a 4.7V battery instead of the required 7.4V). Philip also also recommended replacing the step-up converter with a buck converter to provide a more stable 5V output for both the microcontroller and the sensor. After reviewing these suggestions, I went back and revised the design. Following the corrections, I created the second (and correct!) version of the schematic:
+
+![Screenshot 2025-06-13 144101](https://github.com/user-attachments/assets/5bfd7266-f5f5-4579-9cd3-cca158d246d0)
+
+### June 12, 2025 - 2 hours
+
+*Ruzanna*
+
+- Today I completed the final PCB layout for the controller. One of the biggest challenges I faced was routing all the connections — with so many components in a compact space, it quickly became difficult to find clean paths for every signal. Eventually, I learnt about vias and used them to complete the pcb!
+
+![Screenshot 2025-06-13 144023](https://github.com/user-attachments/assets/df339fd2-4320-41bc-b257-b6e95aef9cd5)
+![Screenshot 2025-06-13 162339](https://github.com/user-attachments/assets/5d22a96b-e25a-418c-88ed-5debb6bfae24) 
+//nothing super interesting on the back of it
+
+- We also familiarised ourselves with the process of ordering pcbs through PCBWay, since it would be our first time using it.
+
+
 
