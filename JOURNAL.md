@@ -51,6 +51,8 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 ### June 11, 2025 - 4 hours
 
+**What we did:**
+
 *Ruzanna*
 
 - Today I created the first schematic for the controller pcb. It was my second time using KiCad after solder so it took A WHILE... but I finally got all the connections in place. I used an ESP32 module as the main microcontroller and wired up a joystick, pressure sensor, potentiometer, and MOSFET-controlled air pump. Getting the voltage regulator set up correctly for the ESP32 was a bit confusing, and figuring out how to wire the MOSFET without frying anything took a few tries. I also added a flyback diode for the air pump to prevent voltage spikes. Laying out all the component symbols and making sure each one had the right number of pins connected was tricky, especially with the ESP32. But by the end, I had a complete schematic I felt pretty good about. Here is a picture of it:
@@ -63,6 +65,8 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 ### June 12, 2025 - 2 hours
 
+**What we did:**
+
 *Ruzanna*
 
 - Today I completed the final PCB layout for the controller. One of the biggest challenges I faced was routing all the connections — with so many components in a compact space, it quickly became difficult to find clean paths for every signal. Eventually, I learnt about vias and used them to complete the pcb!
@@ -73,5 +77,14 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - We also familiarised ourselves with the process of ordering pcbs through PCBWay, since it would be our first time using it.
 
+### June 13, 2025 - 2 hours
+
+**What we did:**
+
+- Today we got the chance to share both of our projects at the Highway Show & Tell with strange parts! It was really interesting and exciting to see all the unique projects made by other hack clubbers, and we certainly learnt a lot from the feedback given by Strange Parts.
+
+*Ruzanna*
+
+- I created the Bill of Materials today, and found all of the parts that we would need to purchace for this project. Everything is written out, including where we will be obtaining the part from in the [MATERIALS-AND-BUDGET.md](MATERIALS-AND-BUDGET.md)
 
 
