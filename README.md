@@ -26,7 +26,7 @@ The main idea of this project is to make controlling robots more natural by *"fe
 |Joystick Module|Controls X and Y motion|
 |Rotary Potentiometer|Controls R motion|
 |PCB|Handles power delivery and connections|
-|LiPo Battery|Powers the arm|
+|LiPo Battery|Powers the controller|
 |3D printed parts|Joystick case and lid|
 |Buck converter|Maintain correct voltage|
 |Air Pump|Pushes air back into the bulb for feedback|
