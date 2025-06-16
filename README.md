@@ -36,6 +36,9 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 | PCB         | PCB                           | [Fabricated PCB][12]              | $5         | $5          |
 | HDR         | Header Pins (20x)             | [Header Pins to mount joystick/sensor/ESP32][13]| $9 | $9    |	        
 | CN1         | Battery Connector             | [Plug in for LiPo battery][14]    | $8         | $8          |
+|AB1|	Pipet bulb	|[Air bulb for pressure sensor][15]|	$8|	$8	|																				
+|	TUBE|		Tubes	|	[Tube to connect the sensor, pump and air bulb][16]|		$8|		$8|																						
+|	CN2	|	Tube T-Connectors	|[Connectors for the tube, air bulb, sensor and pump][17]|		$6|		$6	|																					
 
 
 [1]: https://www.amazon.com/HiLetgo-ESP-WROOM-32-Development-Microcontroller-Integrated/dp/B0718T232Z/ref=sr_1_7?crid=3215NDM97THDZ&dib=eyJ2IjoiMSJ9.XBINg-sjhfF_gUtnMiKGjhlE-f5AuPRamTr33nRxSXkGLv_o48kwC8Ijeis6JInJV0KyHBRH7xGJQ-1txsZL4_5QVucvaXvokYACu1kJYTispfjw86LMs4pUaEb3QBf2tCHnMbfhxKmN1GqPyMwCe0JXg3RkQWr3XzxjTqvRC2Vi1yxUnR4MgBHJZC4l4B3sckUL9U6HKhcOjM0hclVNu3VH8A-i1EauSL7KfuJcGiQ.nLKf6GH-ppYlGRm2A-K7bqKU-ETPi6PvqRFLruHjBsE&dib_tag=se&keywords=esp+32&qid=1749497283&sprefix=esp+%2Caps%2C96&sr=8-7
@@ -65,6 +68,10 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 [13]: https://www.amazon.com/Female-Header-ESP-WROOM-32-ESP32-DevKitC-Breakout/dp/B0CFDYMRK2
 
 [14]: https://www.amazon.com/ZHOFONET-Connector-Adapter-Silicone-Battery/dp/B0DCFQPNFS/ref=sr_1_1_sspa?crid=3M1VK0ORPYIYJ&dib=eyJ2IjoiMSJ9.oGT8dUcPEt_-3myYRWftZ3DoP_hxXUXtj8rHjO44IODWJaF8r3qpxb3_LdaLFcHkSAlY6sRuTfXAtT4CJWVglcS8zBZgHf2INMpEWXcBu1VdJbOZB9d2uzsxLUbZVMqoylkjEW456rAB0vO9DUD9paL6Vtii-Hc4eGX3QDFHX630xEYBLuF5YEvH23S-KkzFMohth_k1CdhRRfUMT6oUCA_inkOBmX093ZZYt9TzGMmac0ODrnMp3IhxnIiXGf0n1mp5ki927JosQLKR-94rneH-L2sNrhOhUfYmVXyiR58.MXuIkj12e3vScXQKY50ODYn6wxcbGM-8giCcSQOPTRw&dib_tag=se&keywords=lipo%2Bbattery%2Bconnector&qid=1749872934&s=electronics&sprefix=lipo%2Bbattery%2Bconnector%2Celectronics%2C104&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1
+
+[15]: https://www.amazon.com/Laboratory-Suction-Pipette-Dropper-Pipettes/dp/B07P86QNB8
+[16]: https://www.amazon.com/uxcell-Silicone-Tubing-Rubber-Transfer/dp/B085N17TDB
+[17]: https://www.amazon.com/uxcell-30Pcs-Plastic-Joiner-Connector/dp/B06XFDTLG2
 
 
 ## How it Works
