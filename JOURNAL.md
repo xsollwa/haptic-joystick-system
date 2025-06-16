@@ -87,4 +87,12 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - I created the Bill of Materials today, and found all of the parts that we would need to purchace for this project. Everything is written out, including where we will be obtaining the part from in the [MATERIALS-AND-BUDGET.md](MATERIALS-AND-BUDGET.md)
 
+### June 15, 2025 - 1 hour
+
+**What we did**
+
+*Ruzanna*
+
+- Today I completed the README.md file of this project. In the README I covered the overview of the project, its key features, components, work process, build process and included links to important files such as the MATERIALS-AND-BUDGET.md and JOURNAL.md.
+
 
