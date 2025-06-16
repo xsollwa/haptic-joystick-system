@@ -1,0 +1,12 @@
+Warning: Width correction constrained.  The width correction value must be in the range of [0.000001 mm; 0.199999 mm] for the current design rules.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-F_Cu.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-B_Cu.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-F_Paste.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-B_Paste.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-F_Silkscreen.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-B_Silkscreen.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-F_Mask.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-B_Mask.gbr'.
+Plotted to 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-Edge_Cuts.gbr'.
+Created Gerber job file 'C:\Users\Amina Petrosyan\Documents\athena workshop\athena workshop-backups\controller\controller-job.gbrjob'.
+Info: Done.
