@@ -95,4 +95,26 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - Today I completed the README.md file of this project. In the README I covered the overview of the project, its key features, components, work process, build process and included links to important files such as the MATERIALS-AND-BUDGET.md and JOURNAL.md.
 
+### June 29, 2025 - 2 hours
+
+**What we did**
+
+*Ruzanna*
+
+- After coming up with a better mechanism for the controller, which uses a bulb, a syringe, and a servo motor to move the syringe plunger, we started searching for new parts. We found a 4 mL bulb that would fit nicely into the controller, and I ran some calculations to figure out how much air we’d need to inject to reach our maximum target pressure of 50 kPa (about the same as a firm pinch).
+
+- Since the normal air pressure is around 101 kPa (atmospheric), raising the bulb’s pressure to 151 kPa means you’d need to increase the amount of air inside by roughly 50%, so about 50% more air molecules. That comes from the ideal gas law, since pressure and the amount of air are directly proportional in a fixed volume. The bulb’s volume is 4 mL, so at atmospheric pressure it already holds 4 mL worth of air. To get to 151 kPa, you’d inject about 2 mL of air at atmospheric pressure, because the ratio Pressure 2/Pressure 1 equals the ratio of the final to initial air quantity. So we knew we would need a syringe that could move at least 2 mL of air.
+
+Our previous 2 mL bulb wouldn’t have handled that kind of pressure swing without deforming too much, so switching to a 4 mL bulb was the safer option.
+
+ ![image](https://github.com/user-attachments/assets/be69e49f-06b6-47ce-bb90-b50aa48670d9)
+
+- Next, we went looking for a 2–3 mL syringe small enough to fit inside the controller. Unfortunately, there weren’t any standard syringes in that size range that would physically fit into the space. So we took a 10 mL syringe and decided to cut it down so it could still handle the air volume we needed but stay small enough for the design.
+
+![image](https://github.com/user-attachments/assets/83d80415-ff80-4d62-8f38-5bdffe1db190)
+
+- Next, we had to figure out how to move the syringe plunger. At first, we planned to use a servo motor, but later Philip found a linear actuator that would be a better alternative because of its uniform horizontal movement and its relatively small size. That should give us more precise control over the air pressure and more consistent haptic feedback.
+  
+![image](https://github.com/user-attachments/assets/a12aee0d-e7d0-409d-bd21-e0202c5d1d9f)
+
 
