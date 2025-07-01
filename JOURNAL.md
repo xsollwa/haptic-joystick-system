@@ -95,6 +95,30 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - Today I completed the README.md file of this project. In the README I covered the overview of the project, its key features, components, work process, build process and included links to important files such as the MATERIALS-AND-BUDGET.md and JOURNAL.md.
 
+
+
+### June 28, 2025 - 3 hours
+
+**What we did**
+
+*Ruzanna*
+
+- Today I mostly focused on designing the controller lid in CAD. I worked on modeling the mounting holes so they would line up with the rest of the assembly, and I also created the cutout for the USB-C port. While working on the lid, I re-mapped the arrangement of all the components inside the cover, since there’s not a lot of space to work with. I tried to place things as efficiently as possible to avoid any interference and to make sure the wiring would stilll be manageable.
+  
+![image](https://github.com/user-attachments/assets/ce3ab4cc-f739-4ab8-8fab-45ab622b2e27) ![image](https://github.com/user-attachments/assets/584fbb8c-cf3f-40f9-a664-2a1b17a676bb) ![image](https://github.com/user-attachments/assets/ab0f5329-3626-4a5a-a027-190ac5e53ee5)
+
+- Later on, we realized that our air pump is not reversible, which would be a problem for creating a functional two-way haptic feedback system. Since we wouldn’t be able to both inflate and deflate the bulb with a non-reversible pump, we started searching for a new reversible air pump. Unfortunately, none of the reversible pumps we found were small enough to fit inside the controller’s limited capacity.
+
+As an alternative, I suggested using a standard air pump along with a valve system. The idea was to switch the pump’s input and output toward the bulb depending on whether we wanted to inflate or deflate it. That’s basically how most balloon inflators and deflators work. But, Philip pointed out that this approach wouldn’t be precise enough for our project, where we need fine control.
+
+Instead, Philip came up with a better mechanism using a syringe moving by a servo motor to move air in and out of the bulb. This design would be a lot more precise while still staying small enough to fit in our controller. After talking it through, we agreed that this was the best way to move forward. Here’s the sketch that Philip made to show the concept:  
+
+![image](https://github.com/user-attachments/assets/9141da40-3744-4c51-84b6-39c17be459c0)
+
+- We also figured that our current MXP5010DP sensor does not tolerate pressure above 10kPa, so we decided to switch to Barometric Pressure Sensor Module which can handle up to 40kPa
+
+
+
 ### June 29, 2025 - 2 hours
 
 **What we did**
