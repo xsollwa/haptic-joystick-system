@@ -141,4 +141,38 @@ Our previous 2 mL bulb wouldn’t have handled that kind of pressure swing wit
   
 ![image](https://github.com/user-attachments/assets/a12aee0d-e7d0-409d-bd21-e0202c5d1d9f)
 
+### June 30, 2025 - 2 hours
+
+*Ruzanna*
+
+- Today I imported or designed the parts (new 4ml bulb, new switch, lipo) that we will be using moving forward, and updated the Bill of Materials with the new parts that we found.
+
+![Screenshot 2025-07-03 002226](https://github.com/user-attachments/assets/8778a972-0610-4607-aa0c-453a5f294f6e)
+![Screenshot 2025-07-03 002254](https://github.com/user-attachments/assets/ffce64b6-b49d-42af-9855-300e6fc8f062)
+![Screenshot 2025-07-03 002241](https://github.com/user-attachments/assets/19d61803-beb6-4689-9087-27fde8aa131f)
+
+
+
+### July 2, 2025 - 4 hours
+
+**What we did**
+
+*Ruzanna*
+- Today I mainly worked on CAD-ing out the parts (syringe and actuator), casing for electronics and updating the Bill of Materials with the new parts!
+
+Battery casing:
+
+![Screenshot 2025-07-02 185931](https://github.com/user-attachments/assets/eebcc6b6-368d-4f16-b61a-2905ea265ade)
+![Screenshot 2025-07-02 185912](https://github.com/user-attachments/assets/96cab16e-a318-4ecc-99fb-b6f69d6d1fa7)
+
+Syringe (and its holder) and actuator:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/93f6c6b4-99e6-42be-ada8-19b0b126ee6c" height="200">
+  <img src="https://github.com/user-attachments/assets/d063dd1b-5de4-4710-92e2-29ac997aee12" height="200">
+  <img src="https://github.com/user-attachments/assets/c5a8dc5e-1658-4b77-9365-581f9fd6720e" height="200">
+  <img src="https://github.com/user-attachments/assets/97a578c7-5408-4275-95f8-b015194b2833" height="200">
+</p>
+
+
 
