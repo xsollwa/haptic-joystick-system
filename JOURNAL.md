@@ -11,7 +11,7 @@ Created_At: "2025-06-07"
 
 - Today we brainstormed ideas for a project that would allow us to incorporate a two-way haptic feedback system and potentially wirelessly interact with robotic builds that have a functional haptic feedback system.
   
-- We decided to build a wireless haptic controller that can interact with a robotic system through pressure-based feedback and multi-axis (XYR) motion input.
+- We decided to build a wireless haptic controller that can interact with a robotic arm through pressure-based feedback and multi-axis (XYR) motion input. We will use this controller to control out previous highway project, which is remote haptic feedback hand (check out at https://github.com/xsollwa/remote-assist-hand)
   
 - The controller works by letting you control a robot or device using your hand. When you squeeze the air bulb, it sends air to a pressure sensor, which tells the microcontroller how hard you’re squeezing. That information is sent wirelessly to either a robot hand or a balloon that gets bigger or smaller depending on your squeeze. The joystick lets you move the robot left, right, forward, and back, and the knob lets you rotate it.
   
@@ -27,7 +27,9 @@ Created_At: "2025-06-07"
   
 - Philip and I had a discussion about all materials we would need for this control pad. After having a good idea of how the controller will function I attempted to create the first detailed design sketch of it. This initial sketch would serve as a visual aid to help us conceptualize how the various components will fit and interact within the final assembly. Here is the first sketch with the labeled components!
 
-![unnamed](https://github.com/user-attachments/assets/40ea8b7f-d950-4abc-8050-621e3feae92d)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/40ea8b7f-d950-4abc-8050-621e3feae92d" height="400"/>
+</p>
 
 After showing the sketch to Philip, we figured that although this control pad would be functional, it would be quite uncomfortable to use. Instead of this design, we decided to incorporate a design that would be fitted to the hand (like an Xbox controller), where the index finger and the thumb of the right hand would pinch the small air bulb, and the left hand would be used for XYR controls. (Also I was missing an air pump in my sketch, which needs to be used in the two-way feedback system)
 
@@ -40,12 +42,12 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - Following the aforementioned feedback I proceeded to create the 3d design of the controller using OnShape. The holes for the electronics are made considering the sizes of the parts that we found online and planned to obtain.
   Here are some screenshots: (This is my second ever 3d design!)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f41a8b4f-3ec3-4baf-9466-5352c035c6ab" height="250"/>
+  <img src="https://github.com/user-attachments/assets/f4fa1d7f-e369-4021-b05e-f19a5888ffa3" height="250"/>
+  <img src="https://github.com/user-attachments/assets/d88df2e6-3c5f-4a72-8750-7fc613d34f4f" height="250"/>
+</p>
 
-![Screenshot 2025-06-10 212356](https://github.com/user-attachments/assets/f41a8b4f-3ec3-4baf-9466-5352c035c6ab)
-
-![Screenshot 2025-06-10 212418](https://github.com/user-attachments/assets/f4fa1d7f-e369-4021-b05e-f19a5888ffa3)
-
-![Screenshot 2025-06-10 212432](https://github.com/user-attachments/assets/d88df2e6-3c5f-4a72-8750-7fc613d34f4f)
 
 - I sent the 3d design over to Philip for review, revisions and fixing if needed.
 
@@ -71,8 +73,11 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - Today I completed the final PCB layout for the controller. One of the biggest challenges I faced was routing all the connections — with so many components in a compact space, it quickly became difficult to find clean paths for every signal. Eventually, I learnt about vias and used them to complete the pcb!
 
-![Screenshot 2025-06-13 144023](https://github.com/user-attachments/assets/df339fd2-4320-41bc-b257-b6e95aef9cd5)
-![Screenshot 2025-06-13 162339](https://github.com/user-attachments/assets/5d22a96b-e25a-418c-88ed-5debb6bfae24) 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/df339fd2-4320-41bc-b257-b6e95aef9cd5" height="250"/>
+  <img src="https://github.com/user-attachments/assets/5d22a96b-e25a-418c-88ed-5debb6bfae24" height="250"/>
+</p>
+
 //nothing super interesting on the back of it
 
 - We also familiarised ourselves with the process of ordering pcbs through PCBWay, since it would be our first time using it.
@@ -95,6 +100,51 @@ After showing the sketch to Philip, we figured that although this control pad wo
 
 - Today I completed the README.md file of this project. In the README I covered the overview of the project, its key features, components, work process, build process and included links to important files such as the MATERIALS-AND-BUDGET.md and JOURNAL.md.
 
+
+## June 17, 2025 - 2 hours
+
+**What we did**
+
+*Ruzanna*
+
+- I uploaded and/or cadded all of the necessary components into my OnShape assembly and put (almost) everything together!
+![Screenshot 2025-06-23 193455](https://github.com/user-attachments/assets/72eb4d07-c9b2-4dfb-9bcc-b18eb0979169)
+
+## June 20, 2025 - 3 hours
+
+**What we did**
+
+*Ruzanna* 
+
+- After checking out other joystick designs, I realized my first version would likely be uncomfortable to hold and wouldn’t have enough room for all the components. Because of that, I decided to redesign it from scratch. My updated version has more internal space and an ergonomic shape that better fits the natural contours of the hand, making it much more comfortable to use. So far, I’ve made good progress on version 2 in CAD. It took some time to learn how to use the loft feature properly though.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9ac0eb06-615e-4873-a841-8382cae9c996" height="250"/>
+  <img src="https://github.com/user-attachments/assets/e837ea72-31dd-4b4a-83fd-d4f986fcda9e" height="250"/>
+  <img src="https://github.com/user-attachments/assets/8ca0bde9-f0ef-4245-8a25-6c8f547e54f6" height="250"/>
+</p>
+
+
+
+## June 22, 2025 - 4 hours
+
+**What we did**
+
+*Ruzanna*
+
+- I decided to fully redo the controller design again because I wasn’t happy with how it turned out. I thought I could make a cleaner and more comfortable version from scratch. I rounded the overall shape a bit and changed up the handles so they feel better in the hands. I also tried out different layout ideas for the joystick modules and the air bulb to see what would work best. Sketching these out helped me plan the controls and think about how to make everything easier to reach and use. Here are some of my sketches and my third version of the controller!: 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c4890968-c58d-4b01-95ff-e7b464ebf900" height="250"/>
+  <img src="https://github.com/user-attachments/assets/9ac9333b-55be-4ddd-9aee-2d176e92ad69" height="250"/>
+</p>
+- We also decided to get rid of the potentiometer and use two dual axis joystick modules to be able to percisely control all the motors on the arm.
+
+## June 25, 2025 - 2 hours
+
+- Today I designed the holders for joystick modules and the battery. 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ef5e5b55-9a5c-4561-a9d1-6325070c5166" height="250"/>
+  <img src="https://github.com/user-attachments/assets/8c51c6db-0140-408f-8c1f-90da223f3ac4" height="250"/>
+</p>
 
 
 ### June 28, 2025 - 3 hours
@@ -131,15 +181,21 @@ Instead, Philip came up with a better mechanism using a syringe moving by a serv
 
 Our previous 2 mL bulb wouldn’t have handled that kind of pressure swing without deforming too much, so switching to a 4 mL bulb was the safer option.
 
- ![image](https://github.com/user-attachments/assets/be69e49f-06b6-47ce-bb90-b50aa48670d9)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/be69e49f-06b6-47ce-bb90-b50aa48670d9" height="250"/>
+</p>
 
 - Next, we went looking for a 2–3 mL syringe small enough to fit inside the controller. Unfortunately, there weren’t any standard syringes in that size range that would physically fit into the space. So we took a 10 mL syringe and decided to cut it down so it could still handle the air volume we needed but stay small enough for the design.
 
-![image](https://github.com/user-attachments/assets/83d80415-ff80-4d62-8f38-5bdffe1db190)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/83d80415-ff80-4d62-8f38-5bdffe1db190" height="250"/>
+</p>
 
 - Next, we had to figure out how to move the syringe plunger. At first, we planned to use a servo motor, but later Philip found a linear actuator that would be a better alternative because of its uniform horizontal movement and its relatively small size. That should give us more precise control over the air pressure and more consistent haptic feedback.
   
-![image](https://github.com/user-attachments/assets/a12aee0d-e7d0-409d-bd21-e0202c5d1d9f)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a12aee0d-e7d0-409d-bd21-e0202c5d1d9f" height="250"/>
+</p>
 
 ### June 30, 2025 - 2 hours
 
