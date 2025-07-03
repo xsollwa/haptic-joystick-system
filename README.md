@@ -74,11 +74,11 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 
 
 ## How it Works
-1) Joystick module and knob send movement data wirelessly through ESP32 to the robot arm,
+1) Joystick modules send movement data wirelessly through ESP32 to the robot arm,
 2) When you squeeze the air bulb the pressure sensor reads the force,
 3) ESP32 sends that signal to the robot (like our [Remote Assist Hand](https://github.com/xsollwa/remote-assist-hand), but the controller can potentially be used on other robots as well),
 4) If the robot grips something, it sends resistance signals back,
-5) Air pump activates and sends pressure into the bulb,
+5) Air pumping mechanism activates and sends pressure into the bulb,
 6) You feel it!
 
 ## Pictures 
@@ -95,8 +95,9 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 1) Brainstorming and sketches
 2) PCB design in KiCAD
 3) CAD modeling in OnShape
-4) Revision and Optimization
-5) Assembly and testing
+4) Coding
+5) Revision and Optimization
+6) Assembly and testing
 
 ## Journal
 Our full development journal can be found [here](./JOURNAL.md)
