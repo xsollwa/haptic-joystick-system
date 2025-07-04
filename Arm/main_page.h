@@ -1,0 +1,133 @@
+#pragma once
+#include <pgmspace.h>
+
+const char MAIN_PAGE[] PROGMEM = R"rawliteral(
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Remote Assist Hand Controls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .button { position: relative; display: inline-block; width:120px; height:68px;
+                 line-height:68px; margin:10px; border:2px solid transparent;
+                 border-radius:6px; background:#034078; color:#fff; font-size:1.2rem;
+                 text-align:center; cursor:pointer; transition:.2s; user-select:none; }
+      .button:hover { background:#022f54; }
+      .button:active { background:#fff; color:#034078; border-color:#034078; }
+      html { font-family:Arial,sans-serif; text-align:center; }
+      body { margin:0; }
+      .topnav { background:#034078; }
+      h1 { font-size:1.8rem; color:#fff; margin:0; padding:16px; }
+      .content { padding:50px; }
+      .card-grid { display:grid; grid-gap:2rem;
+                   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+                   justify-items:center; }
+      .card { background:#fff; box-shadow:2px 2px 12px rgba(140,140,140,.5);
+               border-radius:8px; padding:20px; width:100%; max-width:320px; }
+      .card-title { font-size:1.2rem; font-weight:bold; color:#034078; margin-bottom:15px; }
+      #force-display { font-size:1.5rem; color:#034078; margin-bottom:20px; }
+    </style>
+  </head>
+  <body>
+    <div class="topnav"><h1>Remote Assist Hand Controls</h1></div>
+    <div class="content">
+      <div id="force-display">Force: 0 N</div>
+      <div class="card-grid">
+        <!-- Base Stepper -->
+        <div class="card">
+          <p class="card-title">Base Stepper</p>
+          <button class="button"
+                  onmousedown="startMotor('base_stepper','ccw')"
+                  onmouseup="stopMotor('base_stepper')"
+                  onmouseleave="stopMotor('base_stepper')">CCW</button>
+          <button class="button"
+                  onmousedown="startMotor('base_stepper','cw')"
+                  onmouseup="stopMotor('base_stepper')"
+                  onmouseleave="stopMotor('base_stepper')">CW</button>
+        </div>
+        <!-- Shoulder Servo -->
+        <div class="card">
+          <p class="card-title">Shoulder Servo</p>
+          <button class="button"
+                  onmousedown="startMotor('shoulder_servo','ccw')"
+                  onmouseup="stopMotor('shoulder_servo')"
+                  onmouseleave="stopMotor('shoulder_servo')">CCW</button>
+          <button class="button"
+                  onmousedown="startMotor('shoulder_servo','cw')"
+                  onmouseup="stopMotor('shoulder_servo')"
+                  onmouseleave="stopMotor('shoulder_servo')">CW</button>
+        </div>
+        <!-- Elbow Servo -->
+        <div class="card">
+          <p class="card-title">Elbow Servo</p>
+          <button class="button"
+                  onmousedown="startMotor('elbow_servo','ccw')"
+                  onmouseup="stopMotor('elbow_servo')"
+                  onmouseleave="stopMotor('elbow_servo')">CCW</button>
+          <button class="button"
+                  onmousedown="startMotor('elbow_servo','cw')"
+                  onmouseup="stopMotor('elbow_servo')"
+                  onmouseleave="stopMotor('elbow_servo')">CW</button>
+        </div>
+        <!-- Wrist Servo -->
+        <div class="card">
+          <p class="card-title">Wrist Servo</p>
+          <button class="button"
+                  onmousedown="startMotor('wrist_servo','ccw')"
+                  onmouseup="stopMotor('wrist_servo')"
+                  onmouseleave="stopMotor('wrist_servo')">CCW</button>
+          <button class="button"
+                  onmousedown="startMotor('wrist_servo','cw')"
+                  onmouseup="stopMotor('wrist_servo')"
+                  onmouseleave="stopMotor('wrist_servo')">CW</button>
+        </div>
+        <!-- Grasper Servo -->
+        <div class="card">
+          <p class="card-title">Grasper Servo</p>
+          <button class="button"
+                  onmousedown="startMotor('grasper_servo','ccw')"
+                  onmouseup="stopMotor('grasper_servo')"
+                  onmouseleave="stopMotor('grasper_servo')">CCW</button>
+          <button class="button"
+                  onmousedown="startMotor('grasper_servo','cw')"
+                  onmouseup="stopMotor('grasper_servo')"
+                  onmouseleave="stopMotor('grasper_servo')">CW</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const gateway = `ws://${window.location.hostname}/ws`;
+      let websocket, intervals = {};
+      window.addEventListener('load', initWebSocket);
+      function initWebSocket() {
+        websocket = new WebSocket(gateway);
+        websocket.onopen    = ()=>console.log('WS connected');
+        websocket.onclose   = ()=>{ console.log('WS disconnected'); setTimeout(initWebSocket,2000); };
+        websocket.onmessage = onMessage;
+      }
+      function onMessage(event) {
+        try {
+          const d = JSON.parse(event.data);
+          if (d.type==='force' && d.motor==='grasper_servo') 
+            document.getElementById('force-display')
+                    .textContent = `Force: ${d.force.toFixed(2)} N`;
+        } catch(e){}
+      }
+      function sendMotorCommand(m,dir){
+        if(!websocket||websocket.readyState!==1) return;
+        websocket.send(JSON.stringify({type:'move',motor:m,dir:dir}));
+      }
+      function startMotor(m,dir){
+        sendMotorCommand(m,dir);
+        if(intervals[m]) clearInterval(intervals[m]);
+        intervals[m]=setInterval(()=>sendMotorCommand(m,dir),200);
+      }
+      function stopMotor(m){
+        if(intervals[m]){ clearInterval(intervals[m]); delete intervals[m]; }
+        if(websocket&&websocket.readyState===1)
+          websocket.send(JSON.stringify({type:'stop',motor:m}));
+      }
+    </script>
+  </body>
+</html>
+)rawliteral";
