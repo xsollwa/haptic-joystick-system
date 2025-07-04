@@ -4,6 +4,7 @@
 #include <ArduinoJson.h>
 #include <AccelStepper.h>
 #include <ESP32Servo.h>
+#include <ESPmDNS.h>  // Added for mDNS
 #include "HX711.h"
 #include "main_page.h"
 
@@ -15,7 +16,7 @@ const char* password = "YOUR_PASSWORD";
 WebServer        httpServer(80);
 WebSocketsServer webSocket(81);
 
-// HX711 for arm’s load cell
+// HX711 for arm's load cell
 #define ARM_HX711_DT 18
 #define ARM_HX711_SCK 19
 HX711       armScale;
@@ -36,18 +37,19 @@ const float STEPPER_ACCELERATION = 400.0;
 const float SERVO_STEP_DEG       =   2.0;
 const float SERVO_MIN_ANGLE      =   0.0;
 const float SERVO_MAX_ANGLE      = 270.0;
-const float ARM_FORCE_CAL        =   1.0;    // adjust later
+const float ARM_FORCE_CAL        =   1.0;    // Calibrate this value
 const float FORCE_INTERVAL_MS    = 200.0;
+const float JOY_DEADZONE         =   0.1;    // Added deadzone for joystick
 
 // Objects & state
 AccelStepper baseStepper(AccelStepper::DRIVER, STEP_PIN, DIR_PIN);
 Servo       shoulder, elbow, wrist, grasper;
 unsigned long lastForceTime = 0;
 
-// ** New for joystick & controller **
+// Joystick & controller state
 float joy1x=0, joy1y=0, joy2x=0, joy2y=0;
 float remoteForce = 0;
-bool  discreteMode = true; // start in page-driven mode
+bool  discreteMode = true;
 
 // Current angles for servos
 float shoulderAngle = SERVO_MAX_ANGLE/2,
@@ -55,7 +57,6 @@ float shoulderAngle = SERVO_MAX_ANGLE/2,
       wristAngle    = SERVO_MAX_ANGLE/2,
       grasperAngle  = SERVO_MAX_ANGLE/2;
 
-// Forward declarations
 void handleWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length);
 void broadcastForce();
 
@@ -64,23 +65,28 @@ void setup(){
   // Motor driver reset
   pinMode(RST_PIN, OUTPUT);
   digitalWrite(RST_PIN, HIGH);
+  
   // Configure stepper
   baseStepper.setMaxSpeed(STEPPER_MAX_SPEED);
   baseStepper.setAcceleration(STEPPER_ACCELERATION);
+  
   // Attach servos
   shoulder.attach(SHOULDER_PIN, 500, 2500);
   elbow   .attach(ELBOW_PIN,    500, 2500);
   wrist   .attach(WRIST_PIN,    500, 2500);
   grasper .attach(GRASPER_PIN,  500, 2500);
+  
   // Center servos
   for (Servo* s : { &shoulder, &elbow, &wrist, &grasper }) {
     int pulse = map((int)(SERVO_MAX_ANGLE/2),0,(int)SERVO_MAX_ANGLE,500,2500);
     s->writeMicroseconds(pulse);
   }
+  
   // HX711
   armScale.begin(ARM_HX711_DT, ARM_HX711_SCK);
   armScale.set_scale(1.0);
   armScale.tare();
+  
   // Wi-Fi
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
@@ -90,11 +96,20 @@ void setup(){
     Serial.print('.');
   }
   Serial.println(" OK");
-  // HTTP server → serve UI
+  
+  // mDNS for hostname resolution
+  if (!MDNS.begin("arm")) {
+    Serial.println("Error setting up MDNS responder!");
+  } else {
+    Serial.println("mDNS responder started");
+  }
+  
+  // HTTP server
   httpServer.on("/", HTTP_GET, [](){
     httpServer.send_P(200, "text/html", MAIN_PAGE);
   });
   httpServer.begin();
+  
   // WebSocket server
   webSocket.begin();
   webSocket.onEvent(handleWebSocketEvent);
@@ -105,25 +120,31 @@ void loop(){
   webSocket.loop();
 
   if (discreteMode) {
-    // page-driven: stepper.run() & rely on move/stop events
     baseStepper.run();
   } else {
-    // joystick-driven mixing
+    // Apply deadzone to joystick values
+    if (fabs(joy1x) < JOY_DEADZONE) joy1x = 0;
+    if (fabs(joy1y) < JOY_DEADZONE) joy1y = 0;
+    if (fabs(joy2x) < JOY_DEADZONE) joy2x = 0;
+    if (fabs(joy2y) < JOY_DEADZONE) joy2y = 0;
+    
+    // Stepper control
     baseStepper.setSpeed(joy1x * STEPPER_MAX_SPEED);
     baseStepper.run();
-    // Shoulder
+    
+    // Servo control with joystick
     shoulderAngle = constrain(shoulderAngle + joy1y * SERVO_STEP_DEG,
                               SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
     shoulder.writeMicroseconds(
       map((int)shoulderAngle, 0, (int)SERVO_MAX_ANGLE, 500, 2500)
     );
-    // Elbow
+    
     elbowAngle = constrain(elbowAngle + joy2y * SERVO_STEP_DEG,
                             SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
     elbow.writeMicroseconds(
       map((int)elbowAngle, 0, (int)SERVO_MAX_ANGLE, 500, 2500)
     );
-    // Wrist
+    
     wristAngle = constrain(wristAngle + joy2x * SERVO_STEP_DEG,
                             SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
     wrist.writeMicroseconds(
@@ -131,14 +152,14 @@ void loop(){
     );
   }
 
-  // Grasper feedback from controller
+  // Grasper control from controller
   grasperAngle = constrain(remoteForce / 100.0 * SERVO_MAX_ANGLE,
                            SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
   grasper.writeMicroseconds(
     map((int)grasperAngle, 0, (int)SERVO_MAX_ANGLE, 500, 2500)
   );
 
-  // broadcast our own force reading to the webpage UI
+  // Broadcast force reading
   if (millis() - lastForceTime >= FORCE_INTERVAL_MS) {
     lastForceTime = millis();
     float raw = armScale.get_units(5);
@@ -161,18 +182,15 @@ void handleWebSocketEvent(uint8_t num, WStype_t type,
   if (t == "move") {
     discreteMode = true;
     String m = doc["motor"], dir = doc["dir"];
-    // reuse original moveMotor logic:
     if (m == "base_stepper") {
       float spd = (dir=="cw") ? STEPPER_MAX_SPEED : -STEPPER_MAX_SPEED;
       baseStepper.setSpeed(spd);
     } else {
-      // single-step servo adjust
       Servo* sv; float* ang;
       if      (m=="shoulder_servo"){ sv=&shoulder; ang=&shoulderAngle; }
       else if (m=="elbow_servo")   { sv=&elbow;    ang=&elbowAngle;    }
       else if (m=="wrist_servo")   { sv=&wrist;    ang=&wristAngle;    }
-      else if (m=="grasper_servo") { sv=&grasper;  ang=&grasperAngle;  }
-      else return;
+      else return;  // Removed grasper control
       *ang = constrain(*ang + (dir=="cw"? SERVO_STEP_DEG : -SERVO_STEP_DEG),
                       SERVO_MIN_ANGLE, SERVO_MAX_ANGLE);
       sv->writeMicroseconds(
@@ -181,7 +199,6 @@ void handleWebSocketEvent(uint8_t num, WStype_t type,
     }
   }
   else if (t == "stop") {
-    // stop stepper if requested
     if (String(doc["motor"]) == "base_stepper") 
       baseStepper.setSpeed(0);
   }
