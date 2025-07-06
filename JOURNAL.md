@@ -229,6 +229,3 @@ Syringe (and its holder) and actuator:
   <img src="https://github.com/user-attachments/assets/c5a8dc5e-1658-4b77-9365-581f9fd6720e" height="200">
   <img src="https://github.com/user-attachments/assets/97a578c7-5408-4275-95f8-b015194b2833" height="200">
 </p>
-
-
-
