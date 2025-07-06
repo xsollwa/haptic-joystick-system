@@ -276,3 +276,10 @@ Syringe (and its holder) and actuator:
 <img src="Progress Images/Complete Assembly Front.png" width="400">
 <img src="Progress Images/Complete Assembly Isometric.png" width="400">
 <img src="Progress Images/Plunger Adapter.png" width="400">
+
+### July 6, 2025 - 3 hours
+
+**What we did**
+
+*Ruzanna*
+- Today I organized the repository, made the final changes in readme, BOM, the journal and other files, making sure everything meets the submission requirements. 
