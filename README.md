@@ -14,7 +14,7 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 ## Features
 - **Pneumatic haptic feedback system:** Squeeze a small air bulb to send signals to a robot arm.
 - **Joystick control**: Move the robot arm in XYR *(R-Rotation)* directions.
-- **Two-way haptic feedback communication:** Air pump mechanism also sends pressure back into the bulb when robot grips something.
+- **Two-way haptic feedback communication:** Air pumping piston mechanism also sends pressure back into the bulb when robot grips something.
 - **Wireless communication:** ESP32 hamdles communication between the controller and the robot over Wi-Fi.
 - **Custom PCB and 3D case:** Designed and built from scratch for this project.
 
