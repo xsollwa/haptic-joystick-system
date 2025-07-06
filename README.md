@@ -23,7 +23,7 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 | Part Number | Part Name                 | Description                                       | Unit Price | Total Price |
 | :---------- | :-----------------------: | :-----------------------------------------------: | :--------: | ----------: |
 | MP1         | ESP32                     | [Wi-Fi Microprocessor][1]                         | $10        | $10         |
-| B1          | Urgenex Lipo Battery      | [Battery for the Controller][2]                   | $27        | $27         |
+| B1          | Urgenex Lipo Battery      | [Battery for the Controller][2]                   | $27        | $0 (owned)  |
 | BC1         | Buck Converter 4mm (2x)   | [Buck Converter for 7.4–5v][3]                    | $8         | $0 (owned)  |
 | J1, J2      | Joystick Module (2x)      | [KY-023 control joystick module][4]               | $7         | $7          |
 | S1          | AITRIP Pressure Sensor    | [Barometric Pressure Sensor Module][5]            | $10        | $10         |
@@ -37,7 +37,7 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 | AT1         | Actuator                  | [Mini Linear Actuator to push air][13]            | $18        | $18         |
 | MD1         | Motor Driver              | [Stepper Motor Driver Module][14]                 | $7         | $7          |
 | SW1         | Boat Rocker Switch        | [Power Switch][15]                                | $5         | $5          |
-| TOT         |                           |                                                   |            | **$155**    |
+| TOT         |                           |                                                   |            | **$128**    |
 
 *Total excludes taxes and shipping.*
 
@@ -71,6 +71,10 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 
 [15]: https://www.amazon.com/10PCS-Rocker-Switch-Rectangle-Black/dp/B094FWYWL5/ref=pd_rhf_se_s_pd_sbs_rvi_d_sccl_2_3/140-6042190-5323536?pd_rd_w=4WVy0&content-id=amzn1.sym.6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_p=6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_r=DR52KG0H5RJ4PCX9CGEN&pd_rd_wg=gzPh0&pd_rd_r=7d525b38-a4b4-48b6-9cf1-d10f36e6cb2b&pd_rd_i=B094FWYWL5&th=1
 
+## Notes on Purchasing and Shipping
+
+We want to purchase most of the parts from Amazon. We chose Amazon as our primary supplier because we have access to Amazon Prime, which has faster and free shipping. The free shipping makes the packs cheaper than the singular alternatives at other sources. Some components, like the header pins, were only available in multi packs, so the unit price listed is price of the whole pack. Also, we own some of the parts, like the battery and boost converter, so their cost is put as $0.
+
 
 
 ## How it Works
@@ -83,11 +87,28 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 
 ## Pictures 
 **PCB**
-![Screenshot 2025-06-13 144101](https://github.com/user-attachments/assets/dcc8c826-610b-46b6-85fa-66b040815ea5)
-![Screenshot 2025-06-13 144023](https://github.com/user-attachments/assets/46b11eda-23d2-4e46-9c2e-fdec899698c1)
-![Screenshot 2025-06-13 162339](https://github.com/user-attachments/assets/94c4793a-4583-4b61-a52c-b57f91ec8223)
+
+<p align="center">
+  <img src="./PCB/Images/PCB 3D Back.png" alt="PCB 3D Back" height="200">
+  <br>
+  <img src="./PCB/Images/PCB 3D Front.png" alt="PCB 3D Front" height="200">
+  <br>
+  <img src="./PCB/Images/PCB Routing.png" alt="PCB Routing" height="200">
+  <br>
+  <img src="./PCB/Images/PCB Schematic.png" alt="PCB Schematic" height="200">
+</p>
+
+
 
 **3D model**
+
+<p align="center">
+  <img src="./CAD/images/back-with-lid.png" alt="Back with Lid" height="300">
+  <br>
+  <img src="./CAD/images/back.png" alt="Back" height="300">
+  <br>
+  <img src="./CAD/images/front.png" alt="Front" height="300">
+</p>
 
 
 
