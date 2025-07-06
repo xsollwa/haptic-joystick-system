@@ -167,6 +167,14 @@ Instead, Philip came up with a better mechanism using a syringe moving by a serv
 
 - We also figured that our current MXP5010DP sensor does not tolerate pressure above 10kPa, so we decided to switch to Barometric Pressure Sensor Module which can handle up to 40kPa
 
+### June 28, 2025 - 3 hours
+
+**What we did**
+
+*Philip*
+
+- I assisted Ruzanna in brainstorming and creating sketches for possible designs of the controller, specifically considering the use of a motor to push a syringe and precisely control the air pressure within the bulb, as explained above.
+
 
 
 ### June 29, 2025 - 2 hours
@@ -196,6 +204,13 @@ Our previous 2 mL bulb wouldn’t have handled that kind of pressure swing wit
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a12aee0d-e7d0-409d-bd21-e0202c5d1d9f" height="250"/>
 </p>
+
+### June 29, 2025 - 2 hours
+
+**What we did**
+
+*Philip*
+- As Ruzanna has detailed above, I assisted in brainstorming and discussing the design of the controller, finding new parts and ideas for how the two-way haptic feedback system will work.
 
 ### June 30, 2025 - 2 hours
 
@@ -229,3 +244,31 @@ Syringe (and its holder) and actuator:
   <img src="https://github.com/user-attachments/assets/c5a8dc5e-1658-4b77-9365-581f9fd6720e" height="200">
   <img src="https://github.com/user-attachments/assets/97a578c7-5408-4275-95f8-b015194b2833" height="200">
 </p>
+
+### July 2, 2025 - 7 hours
+
+**What we did**
+
+*Philip*
+- Today, I worked on remaking the PCB that Ruzanna had previously worked on, since the planes for the controller had changed a lot recently. Many of the parts we had to include also changed. I also had to update some of the footprints she was using since I had mistakenly given her the wrong ones. Using her previous PCB design as a reference, I remade it, making it more compact and changing the components to suit our needs. Below are images of the new PCB.
+<img src="PCB/Images/PCB Schematic.png" width="400">
+<img src="PCB/Images/PCB Routing.png" width="400">
+<img src="PCB/Images/PCB 3D Front.png" width="400">
+<img src="PCB/Images/PCB 3D Back.png" width="400">
+
+### July 3, 2025 - 6 hours
+
+**What we did**
+
+*Philip*
+- Today, I created the code for the ESP32 controller and modified the code from our ARM project so that it can be controlled not only through the webpage but also through the controller, allowing for a proper two-way closed haptic feedback system. This system will work by the ESP32 in the arm sending amplified signals from the load cell in the grasper, giving pressure feedback. In the controller there will be a 4mL pipet bulb which the user will squeeze which is hooked up to both a pressure sensor as well as a syrige filled with air and a linear actuator which will increase the pressure in the bulb to a maximum of 40 kPa (the equivalent of a tight pinch) as the load cell expereinces more and more force. However, as the pressure rises from the user squeezing the bulb, so will the force on the load cell as the grasper squeezes tighter.
+
+### July 4, 2025 - 5 hours
+
+**What we did**
+
+*Philip*
+- Today, I worked on refining the CAD and preparing it for printing, adding the plunger adapter part for the linear actuator, and making adjustments to tolerances. I also ensured that all threaded inserts and screws would fit well into the design. Below are some images of the adapter and the completed CAD.
+<img src="Progress Images/Complete Assembly Front.png" width="400">
+<img src="Progress Images/Complete Assembly Isometric.png" width="400">
+<img src="Progress Images/Plunger Adapter.png" width="400">
