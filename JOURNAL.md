@@ -282,4 +282,11 @@ Syringe (and its holder) and actuator:
 **What we did**
 
 *Ruzanna*
-- Today I organized the repository, made the final changes in readme, BOM, the journal and other files, making sure everything meets the submission requirements. 
+- Today I organized the repository, made the final changes in readme, BOM, the journal and other files, making sure everything meets the submission requirements.
+
+### July 10, 2025 - 1 hour
+
+**What we did**
+
+*Ruzanna*
+- I made some changes in the code to improve how the joystick data is handled. I made the joystick center values calibrate automatically instead of using a fixed number. This helps the robot move more based on the real joystick position. I also added Wi-Fi and WebSocket reconnect logic so the it can recover if the connection drops.
