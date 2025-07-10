@@ -3,11 +3,9 @@
 #include <ArduinoJson.h>
 #include <HX711.h>
 
-// Wi-Fi
+// Wi-Fi & Ws client
 const char* WIFI_SSID = "YOUR_SSID";
 const char* WIFI_PWD  = "YOUR_PASSWORD";
-
-// Ws client
 WebSocketsClient ws;
 const char* ARM_HOST  = "arm.local";
 const uint16_t ARM_PORT = 81;
@@ -18,7 +16,7 @@ const int J1X = 34, J1Y = 35, J2X = 32, J2Y = 33;
 const int BUF_LEN = 5, SAMPLE_MS = 10;
 int buf1x[BUF_LEN] = {}, buf1y[BUF_LEN] = {}, buf2x[BUF_LEN] = {}, buf2y[BUF_LEN] = {};
 int bufIdx = 0;
-int ctr1x = 2048, ctr1y = 2048, ctr2x = 2048, ctr2y = 2048;  // Calibrated midpoints
+int ctr1x = 2048, ctr1y = 2048, ctr2x = 2048, ctr2y = 2048;  // Midpoints
 const float ADC_MAX = 2048.0;
 volatile float lastArmForce = 0;
 const int DEADZONE_PCT = 5;
@@ -28,7 +26,7 @@ int DEADZONE = ADC_MAX * DEADZONE_PCT / 100;
 const int BULB_DT = 19, BULB_SCK = 18;
 HX711 bulbScale;
 
-// H-bridge pins
+// H-bridge pins for actuator
 const int H1 = 17, H2 = 16;
 
 // WS reconnect flag
