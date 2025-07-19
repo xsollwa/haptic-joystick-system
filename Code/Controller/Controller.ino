@@ -2,6 +2,9 @@
 #include <WebSocketsClient.h>
 #include <ArduinoJson.h>
 #include <HX711.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 // Wi-Fi & Ws client
 const char* WIFI_SSID = "YOUR_SSID";
@@ -13,6 +16,7 @@ const char* ARM_PATH  = "/ws";
 
 // Joysticks
 const int J1X = 34, J1Y = 35, J2X = 32, J2Y = 33;
+const int J1_BTN = 23, J2_BTN = 22;
 const int BUF_LEN = 5, SAMPLE_MS = 10;
 int buf1x[BUF_LEN] = {}, buf1y[BUF_LEN] = {}, buf2x[BUF_LEN] = {}, buf2y[BUF_LEN] = {};
 int bufIdx = 0;
@@ -28,6 +32,13 @@ HX711 bulbScale;
 
 // H-bridge pins for actuator
 const int H1 = 17, H2 = 16;
+
+// OLED 
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+int screenPage = 0;
+const int NUM_PAGES = 4;
 
 // WS reconnect flag
 bool wsReconnectNeeded = false;
@@ -65,17 +76,60 @@ void calibrateJoysticks() {
   Serial.printf("Joystick centers calibrated: J1(%d,%d), J2(%d,%d)\n", ctr1x, ctr1y, ctr2x, ctr2y);
 }
 
+void updateDisplay(float j1x, float j1y, float j2x, float j2y, float kPa) {
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  switch (screenPage) {
+    case 0:
+      display.setTextSize(1);
+      display.println("Arm Force:");
+      display.setTextSize(2);
+      display.print(lastArmForce, 2); display.println(" N");
+      break;
+    case 1:
+      display.setTextSize(1);
+      display.println("Bulb Pressure:");
+      display.setTextSize(2);
+      display.print(kPa, 2); display.println(" kPa");
+      break;
+    case 2:
+      display.setTextSize(1);
+      display.println("Joystick Values:");
+      display.printf("J1 X: %.2f\n", j1x);
+      display.printf("J1 Y: %.2f\n", j1y);
+      display.printf("J2 X: %.2f\n", j2x);
+      display.printf("J2 Y: %.2f\n", j2y);
+      break;
+    case 3:
+      display.setTextSize(1);
+      display.print("SSID: "); display.println(WiFi.SSID());
+      display.print("IP: "); display.println(WiFi.localIP());
+      display.print("WS: "); display.println(ws.isConnected() ? "Connected" : "Lost");
+      break;
+  }
+  display.display();
+}
+
 void setup() {
   Serial.begin(115200);
   analogReadResolution(12);
+
+  pinMode(J1_BTN, INPUT_PULLUP);
+  pinMode(J2_BTN, INPUT_PULLUP);
 
   // H-bridge setup
   pinMode(H1, OUTPUT); pinMode(H2, OUTPUT);
   digitalWrite(H1, LOW); digitalWrite(H2, LOW);
 
+   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println("SSD1306 allocation failed");
+    while (1);
+  }
+
   // HX711 setup
   bulbScale.begin(BULB_DT, BULB_SCK);
-  bulbScale.set_scale(1.0);  // adjust as needed
+  bulbScale.set_scale(1.0); 
   bulbScale.tare();
 
   // Wi-Fi connect
@@ -86,16 +140,23 @@ void setup() {
   }
   Serial.println(" connected");
 
-  // Calibrate joystick centers
+  // Calibrate joystick 
   calibrateJoysticks();
-
-  // WebSocket setup
   ws.begin(ARM_HOST, ARM_PORT, ARM_PATH);
   ws.onEvent(onWsEvent);
 }
 
 void loop() {
-  // Reconnect Wi-Fi if needed
+
+  static bool j1Prev = HIGH, j2Prev = HIGH;
+  bool j1Now = digitalRead(J1_BTN);
+  bool j2Now = digitalRead(J2_BTN);
+  if (j1Prev == HIGH && j1Now == LOW) screenPage = (screenPage + 1) % NUM_PAGES;
+  if (j2Prev == HIGH && j2Now == LOW) screenPage = (screenPage - 1 + NUM_PAGES) % NUM_PAGES;
+  j1Prev = j1Now;
+  j2Prev = j2Now;
+
+  // Reconnect Wi-Fi 
   if (WiFi.status() != WL_CONNECTED) {
     Serial.println("Wi-Fi lost, reconnecting...");
     WiFi.begin(WIFI_SSID, WIFI_PWD);
@@ -103,7 +164,7 @@ void loop() {
     return;
   }
 
-  // Reconnect WebSocket if needed
+  // Reconnect WebSocket 
   if (wsReconnectNeeded) {
     wsReconnectNeeded = false;
     ws.begin(ARM_HOST, ARM_PORT, ARM_PATH);
@@ -156,7 +217,7 @@ void loop() {
   ws.sendTXT(fo);
 
   // match arm’s force via H-bridge
-  float err = lastArmForce - kPa;
+   float err = lastArmForce - kPa;
   if (err > 1.0) {
     digitalWrite(H1, HIGH); digitalWrite(H2, LOW);
   } else if (err < -1.0) {
@@ -164,4 +225,6 @@ void loop() {
   } else {
     digitalWrite(H1, LOW); digitalWrite(H2, LOW);
   }
+
+  updateDisplay(j1x, j1y, j2x, j2y, kPa);
 }
