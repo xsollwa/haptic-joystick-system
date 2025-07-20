@@ -17,6 +17,10 @@ The **Haptic Joystick System** is a *wireless controller that lets you wirelessl
 - **Two-way haptic feedback communication:** Air pumping piston mechanism also sends pressure back into the bulb when robot grips something.
 - **Wireless communication:** ESP32 hamdles communication between the controller and the robot over Wi-Fi.
 - **Custom PCB and 3D case:** Designed and built from scratch for this project.
+- **OLED Display:** A little screen shows live data like grip pressure, feedback intensity and other info.
+- **Ergonomic handle options:** In addition to the default casing, we CAD-ed an alternate ergonomic grip design for more comfort that can be added on the controller.
+
+Ergonomic handle options: In addition to the default casing, we CAD-modeled an alternate ergonomic grip design for added comfort and modularity when holding the controller.
 
 ### Materials and Budget
 
@@ -84,6 +88,7 @@ We want to purchase most of the parts from Amazon. We chose Amazon as our primar
 4) If the robot grips something, it sends resistance signals back,
 5) Air pumping mechanism activates and sends pressure into the bulb,
 6) You feel it!
+7) OLED screen displays pressure data, joystick values, connection status and more. Pressing either joystick down switched between display modes.
 
 ## Pictures 
 **PCB**
