@@ -290,3 +290,20 @@ Syringe (and its holder) and actuator:
 
 *Ruzanna*
 - I made some changes in the code to improve how the joystick data is handled. I made the joystick center values calibrate automatically instead of using a fixed number. This helps the robot move more based on the real joystick position. I also added Wi-Fi and WebSocket reconnect logic so the it can recover if the connection drops.
+
+### July 18, 2025 - 2 hours
+
+**What we did**
+
+*Ruzanna*
+- To make this controller more advanced, Philip and I decided to utilize all of the buttons on our joystick modules and add a little display. It’s one of those tiny 128x32 displays, and I got it coded with the Adafruit library. I set it up to show four different screens that I will be able to flip through by clicking down on the joystick buttons.
+
+The pages show:
+- Arm force (from the robot’s grasper)
+- My bulb pressure (from the HX711)
+- Live joystick values (to check how it’s reading my input)
+- And a little status screen with Wi-Fi info and whether the WebSocket is connected
+
+<img width="452" height="328" alt="image" src="https://github.com/user-attachments/assets/f8cda838-383f-4ab7-896d-c5369cb000ef" />
+
+
