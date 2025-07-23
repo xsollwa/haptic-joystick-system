@@ -4,10 +4,10 @@ Authors: "Ruzanna Gaboyan and Philip Golczak"
 Description: "Haptic Joystick System is a controller that uses air pressure to send haptic feedback. It has an air bulb that you squeeze, a tube connected to pressure sensor and joystick-like controls for movement in the X Y and R (rotation) directions."
 Created_At: "2025-06-07"
 ---
-# Total time spent (On design): 65 hours
+# Total time spent (On design): 74 hours
 **Ruzanna**: 42 hours
 
-**Philip**: 27 hours
+**Philip**: 32 hours
 
 ### June 6, 2025 - 2 hours
 
