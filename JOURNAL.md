@@ -255,10 +255,10 @@ Syringe (and its holder) and actuator:
 
 *Philip*
 - Today, I worked on remaking the PCB that Ruzanna had previously worked on, since the planes for the controller had changed a lot recently. Many of the parts we had to include also changed. I also had to update some of the footprints she was using since I had mistakenly given her the wrong ones. Using her previous PCB design as a reference, I remade it, making it more compact and changing the components to suit our needs. Below are images of the new PCB.
-<img src="PCB/Images/PCB Schematic.png" width="400">
-<img src="PCB/Images/PCB Routing.png" width="400">
-<img src="PCB/Images/PCB 3D Front.png" width="400">
-<img src="PCB/Images/PCB 3D Back.png" width="400">
+<img src="Progress Images/PCB SchematicV1.png" width="400">
+<img src="Progress Images/PCB RoutingV1.png" width="400">
+<img src="Progress Images/PCB 3D FrontV1.png" width="400">
+<img src="Progress Images/PCB 3D BackV1.png" width="400">
 
 ### July 3, 2025 - 6 hours
 
@@ -306,4 +306,18 @@ The pages show:
 
 <img width="452" height="328" alt="image" src="https://github.com/user-attachments/assets/f8cda838-383f-4ab7-896d-c5369cb000ef" />
 
+### July 19, 2025 - 5 hours
 
+**What we did**
+
+*Philip*
+- Today, I focused all my efforts on putting the finishing touches on the project while striving to make it advanced. Specifically, I worked primarily on the PCB, integrating the joystick modules into our custom PCB and adding connectors for the OLED screen. Additionally, I ensured the PCB was well-equipped to handle the high power from the LIPO battery by utilizing KiCAD's netclasses and making certain vital power connections thicker to support the high voltage and current. Additionally, I refined the CAD design, modifying the mounting position for the PCB to accommodate the embedded joystick modules, as well as relocating the programming port. Overall the design for the controller is quite advanted with the two way closed pressure feedback system which requires precision controlls and calibration, its power scheme from a lipo batter being used not only to power the microcontroller, sensor, joysticks, and screen through a 5v regulator but also powering the linear actuator directly, lastly with this precision custom PCB I am very proud of this project. Below are pictures of the updates I have made.
+
+<img src="Progress Images/PCB SchematicV2.png" width="400">
+<img src="Progress Images/PCB RoutingV2.png" width="400">
+<img src="Progress Images/PCB 3D FrontV2.png" width="400">
+<img src="Progress Images/PCB 3D BackV2.png" width="400">
+
+<img src="./CAD/images/CAD Isometric.png" alt="Back with Lid" width="400">
+<img src="./CAD/images/CAD Back.png" alt="Back" width="400">
+<img src="./CAD/images/CAD Front.png" alt="Front" width="400">

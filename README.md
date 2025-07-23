@@ -94,13 +94,10 @@ We want to purchase most of the parts from Amazon. We chose Amazon as our primar
 **PCB**
 
 <p align="center">
-  <img src="./PCB/Images/PCB 3D Back.png" alt="PCB 3D Back" height="200">
-  <br>
-  <img src="./PCB/Images/PCB 3D Front.png" alt="PCB 3D Front" height="200">
-  <br>
-  <img src="./PCB/Images/PCB Routing.png" alt="PCB Routing" height="200">
-  <br>
-  <img src="./PCB/Images/PCB Schematic.png" alt="PCB Schematic" height="200">
+  <img src="Progress Images/PCB SchematicV2.png" width="400">
+  <img src="Progress Images/PCB RoutingV2.png" width="400">
+  <img src="Progress Images/PCB 3D FrontV2.png" width="400">
+  <img src="Progress Images/PCB 3D BackV2.png" width="400">
 </p>
 
 
@@ -108,11 +105,11 @@ We want to purchase most of the parts from Amazon. We chose Amazon as our primar
 **3D model**
 
 <p align="center">
-  <img src="./CAD/images/back-with-lid.png" alt="Back with Lid" height="300">
+  <img src="./CAD/images/CAD Isometric.png" alt="Back with Lid" width="400">
   <br>
-  <img src="./CAD/images/back.png" alt="Back" height="300">
+  <img src="./CAD/images/CAD Back.png" alt="Back" width="400">
   <br>
-  <img src="./CAD/images/front.png" alt="Front" height="300">
+  <img src="./CAD/images/CAD Front.png" alt="Front" width="400">
 </p>
 
 
