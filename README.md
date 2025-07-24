@@ -35,12 +35,13 @@ Ergonomic handle options: In addition to the default casing, we CAD-modeled an a
 | PINS        | Header Pins (20x)         | [Header Pins to mount joystick/sensor/ESP32][7]   | $9         | $9          |
 | BT1         | Battery Connector         | [Plug in for LiPo battery][8]                     | $5         | $5          |
 | BULB        | Pipet Bulb                | [4ml Air bulb for pressure sensor][9]             | $23        | $23         |
-| TUBE        | Tubes                     | [Tube to connect the sensor, pump and air bulb][10]| $8        | $8          |
-| CN1         | Tube T-Connectors         | [Connectors for the tube, air bulb, sensor and pump][11] | $6 | $6  |
+| TUBE        | Tubes                     | [Air Tubes for sensor, pump and air bulb][10]     | $8         | $8          |
+| CN1         | Tube T-Connectors         | [Connectors for air bulb, sensor and pump][11]    | $6         | $6          |
 | SYRINGE     | Syringe                   | [10ml Syringe for inflating and deflating][12]    | $2         | $2          |
 | AT1         | Actuator                  | [Mini Linear Actuator to push air][13]            | $18        | $18         |
 | MD1         | Motor Driver              | [Stepper Motor Driver Module][14]                 | $7         | $7          |
 | SW1         | Boat Rocker Switch        | [Power Switch][15]                                | $5         | $5          |
+| SC1         | OLED Screen               | [Force Display Screen][16]                        | $7         | $0          | 
 | TOT         |                           |                                                   |            | **$128**    |
 
 *Total excludes taxes and shipping.*
@@ -74,6 +75,8 @@ Ergonomic handle options: In addition to the default casing, we CAD-modeled an a
 [14]: https://www.amazon.com/WWZMDiB-L298N-H-Bridge-Controller-Raspberry/dp/B0CR6BX5QL/ref=sr_1_3?crid=29082FZTVCC1N&dib=eyJ2IjoiMSJ9.utcrHO-ri72vm6OzWL_HHlqkZQVI1B-_qLhcMR2C5R5k3RBRZ1nYL2ckiLxC7Do4aCg7CWIuHJ3co5hLlnPR_qtDUzCv7QzPr-WLM6d-PYMzgThHLfaT1xYnQxcwDbsEvwtZC3u8SznGJYMsXMwIEyUFcm5EN3cyCeI2OefFIPcCTEPXSWe5sOm4TN8rblfwqd--MV30MaVRCKDfzR6hHnDbP_Hp5SplUI2RRNEFnHE.wVpY55BqILMdJGgtGYxkCZS6FOEDSo7ik3cOazcfbow&dib_tag=se&keywords=stepper%2Bmotor%2Bdriver%2Bmodule%2Bh%2Bbridge&qid=1751554092&sprefix=stepper%2Bmotor%2Bdriver%2Bmodule%2Bh%2Bbridge%2Caps%2C97&sr=8-3&th=1
 
 [15]: https://www.amazon.com/10PCS-Rocker-Switch-Rectangle-Black/dp/B094FWYWL5/ref=pd_rhf_se_s_pd_sbs_rvi_d_sccl_2_3/140-6042190-5323536?pd_rd_w=4WVy0&content-id=amzn1.sym.6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_p=6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_r=DR52KG0H5RJ4PCX9CGEN&pd_rd_wg=gzPh0&pd_rd_r=7d525b38-a4b4-48b6-9cf1-d10f36e6cb2b&pd_rd_i=B094FWYWL5&th=1
+
+[16]: https://www.amazon.com/MakerFocus-Display-SSD1306-3-3V-5V-Arduino/dp/B079BN2J8V/ref=sr_1_18?crid=2NJJJAGN8BQO6&dib=eyJ2IjoiMSJ9.tyHlRT6klW5hAGtXQVbYDmqxwmg_mOLQTjGpDjoJ90xTDw2A9sWuryO7IVd5y5AtsSs8OSZMWWXDALoynkOXy8SKWBWDAqVHmIgy2aKZKshmsGD-c4Z0v0fK9Jr4ZMn9bUNr5qurp20z1lHsbgX0TMEQcFnzjw42P1wyQ6PjgNFSeOy4M5uCsvnso-GYu9MmtoGsUX9gOSLgQ-k9icQQmnMU4Dp0k8fC80jus6bwyzI.MCFFtQFvuGYU0lzSGmZABp1M45mwOj1v_cmNeOH7s8I&dib_tag=se&keywords=oled%2Bscreen%2Barduino&qid=1753331485&sprefix=OLED%2Bscreen%2Caps%2C111&sr=8-18&th=1
 
 ## Notes on Purchasing and Shipping
 
