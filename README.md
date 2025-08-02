@@ -49,7 +49,7 @@ Ergonomic handle options: In addition to the default casing, we CAD-modeled an a
 
 We want to purchase most of the parts from Amazon. We chose Amazon as our primary supplier because we have access to Amazon Prime, which has faster shipping. The prime shipping makes the packs cheaper than the singular alternatives at other sources (like AliExpress). Also, we own some of the parts, like the battery and boost converter, so their cost is put as $0. 
 
-
+//Note: The difference between Aliexpress sourcing and Amazon sourcing for this project is ~$7.00
 
 ## How it Works
 1) Joystick modules send movement data wirelessly through ESP32 to the robot arm,
